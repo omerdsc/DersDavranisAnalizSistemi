@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Datasets and outputs
+Ogrenci_Dataset/
+OgrenciHali/
+runs/
+
+# Models and weights
+*.pt
+
+# Local videos
+evrak_13330464502 (1)_videoTEMP_MPY_wvf_snd.mp4
+evrak_13330464502 (1)_video.mp4
+çarpma_video.mp4

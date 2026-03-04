@@ -1,0 +1,10 @@
+ultralytics
+opencv-python
+streamlit
+pdfplumber
+edge-tts
+moviepy
+Pillow
+pillow-heif
+scikit-learn
+numpy
