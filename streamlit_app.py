@@ -25,6 +25,11 @@ from ultralytics import YOLO
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DETECTION_MODEL_PATH = os.path.join(BASE_DIR, "yolov8n.pt")
 
+HERO_IMAGE_PATH = os.path.join(BASE_DIR, "assets", "hero.jpg")
+DINLIYOR_IMAGE_PATH = os.path.join(BASE_DIR, "assets", "dinliyor.jpg")
+DINLEMIYOR_IMAGE_PATH = os.path.join(BASE_DIR, "assets", "dinlemiyor.jpg")
+PDF_VIDEO_IMAGE_PATH = os.path.join(BASE_DIR, "assets", "pdf_video.jpg")
+
 CLASS_LABELS = {0: "Dinlemiyor", 1: "Dinliyor"}
 COLORS = {
     "Dinliyor": (0, 200, 0),
@@ -634,6 +639,36 @@ st.markdown("""
     <p class="hero-subtitle">Yapay zeka destekli gercek zamanli ogrenci katilim analizi</p>
 </div>
 """, unsafe_allow_html=True)
+
+
+def show_optional_image(path: str, caption: str = None) -> None:
+    if os.path.exists(path):
+        st.image(path, caption=caption, use_container_width=True)
+
+
+hero_col_left, hero_col_right = st.columns([2, 1], gap="large")
+with hero_col_left:
+    show_optional_image(HERO_IMAGE_PATH, "Proje genel gorseli")
+with hero_col_right:
+    st.markdown("""
+    <div class="info-box">
+        Bu alana ana sayfa gorselini ekleyebilirsin. Dosya yolu:
+        <b>assets/hero.jpg</b>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown('<hr class="fancy-divider">', unsafe_allow_html=True)
+
+col_a, col_b, col_c = st.columns(3, gap="large")
+with col_a:
+    show_optional_image(DINLIYOR_IMAGE_PATH, "Dinliyor ornegi")
+    st.caption("Dosya yolu: assets/dinliyor.jpg")
+with col_b:
+    show_optional_image(DINLEMIYOR_IMAGE_PATH, "Dinlemiyor ornegi")
+    st.caption("Dosya yolu: assets/dinlemiyor.jpg")
+with col_c:
+    show_optional_image(PDF_VIDEO_IMAGE_PATH, "PDF'den video ornegi")
+    st.caption("Dosya yolu: assets/pdf_video.jpg")
 
 # ---------------------------------------------------------------------------
 # Yardimci fonksiyonlar
